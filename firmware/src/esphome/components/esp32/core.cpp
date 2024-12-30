@@ -40,7 +40,7 @@ void arch_init() {
   esp_task_wdt_add(nullptr);
   // Idle task watchdog is disabled on ESP-IDF
 #elif defined(USE_ARDUINO)
-  enableLoopWDT();
+  // enableLoopWDT();
   // Disable idle task watchdog on the core we're using (Arduino pins the task to a core)
 #if defined(CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU0) && CONFIG_ARDUINO_RUNNING_CORE == 0
   disableCore0WDT();

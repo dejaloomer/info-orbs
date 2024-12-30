@@ -26,7 +26,7 @@ bool is_connected() {
 #ifdef USE_HOST
   return true;  // Assume its connected
 #endif
-  return false;
+  return true;
 }
 
 bool is_disabled() {

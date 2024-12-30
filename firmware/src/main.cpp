@@ -74,7 +74,7 @@ void addWidgets() {
 #endif
 }
 void esphomeSetup(){
-    App.pre_setup("matrix", "", "", "", __DATE__ ", " __TIME__, false);
+    App.pre_setup("higuy", "", "", "", __DATE__ ", " __TIME__, false);
   // logger:
   //   level: DEBUG
   //   id: logger_logger_id
@@ -351,7 +351,7 @@ void setup() {
     Serial.println("Starting esphome");
         ShowMemoryUsage::printSerial(true, true);
         Serial.println("Starting netif");
-esp_netif_init();
+//esp_netif_init();
     esphomeSetup();
     ShowMemoryUsage::printSerial(true, true);
 
@@ -360,6 +360,7 @@ esp_netif_init();
 
 void loop() {
       App.loop();
+#if 1
     MainHelper::watchdogReset();
     if (wifiWidget->isConnected() == false) {
         wifiWidget->update();
@@ -388,4 +389,5 @@ void loop() {
     ShowMemoryUsage::printSerial();
 #endif
     MainHelper::restartIfNecessary();
+#endif
 }
