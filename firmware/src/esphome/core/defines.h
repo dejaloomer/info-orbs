@@ -11,7 +11,7 @@
 #define USE_ESP32_BLE_CLIENT
 #define USE_LOGGER
 //#define USE_MD5
-//#define USE_MDNS
+#define USE_MDNS
 #define USE_NETWORK
 #define USE_NETWORK_IPV6 false
 //#define USE_OTA

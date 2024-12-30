@@ -18,7 +18,7 @@ logger::Logger *logger_logger_id;
 //web_server_base::WebServerBase *web_server_base_webserverbase_id;
 //captive_portal::CaptivePortal *captive_portal_captiveportal_id;
 //PWC wifi::WiFiComponent *wifi_wificomponent_id;
-//PWC mdns::MDNSComponent *mdns_mdnscomponent_id;
+mdns::MDNSComponent *mdns_mdnscomponent_id;
 //esphome::ESPHomeOTAComponent *esphome_esphomeotacomponent_id;
 //safe_mode::SafeModeComponent *safe_mode_safemodecomponent_id;
 api::APIServer *api_apiserver_id;
@@ -149,7 +149,7 @@ void esphomeSetup(){
   //   id: mdns_mdnscomponent_id
   //   disabled: false
   //   services: []
-  #if PWCMEM
+  #if 1
   mdns_mdnscomponent_id = new mdns::MDNSComponent();
   mdns_mdnscomponent_id->set_component_source("mdns");
   App.register_component(mdns_mdnscomponent_id);
@@ -224,6 +224,7 @@ void esphomeSetup(){
   //     id: bluetooth_proxy_bluetoothconnection_id_2
   //   - esp32_ble_id: esp32_ble_tracker_esp32bletracker_id
   //     id: bluetooth_proxy_bluetoothconnection_id_3
+ #if 1
   bluetooth_proxy_bluetoothproxy_id = new bluetooth_proxy::BluetoothProxy();
   bluetooth_proxy_bluetoothproxy_id->set_component_source("bluetooth_proxy");
   App.register_component(bluetooth_proxy_bluetoothproxy_id);
@@ -290,7 +291,7 @@ void esphomeSetup(){
   esp32_ble_tracker_esp32bletracker_id->set_scan_window(48);
   esp32_ble_tracker_esp32bletracker_id->set_scan_active(true);
   esp32_ble_tracker_esp32bletracker_id->set_scan_continuous(true);
- #if 1
+ #if 0
   esp32_ble_tracker_espbtadvertisetrigger_id = new esp32_ble_tracker::ESPBTAdvertiseTrigger(esp32_ble_tracker_esp32bletracker_id);
   automation_id = new Automation<const esp32_ble_tracker::ESPBTDevice &>(esp32_ble_tracker_espbtadvertisetrigger_id);
   lambdaaction_id = new LambdaAction<const esp32_ble_tracker::ESPBTDevice &>([=](const esp32_ble_tracker::ESPBTDevice & x) -> void {
@@ -299,6 +300,7 @@ void esphomeSetup(){
                x.address_str().c_str(), x.get_rssi());
   });
   automation_id->add_actions({lambdaaction_id});
+ #endif
  #endif
   App.setup();
 }
