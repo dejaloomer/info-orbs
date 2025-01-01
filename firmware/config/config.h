@@ -83,21 +83,22 @@
 #define GC9A01_DRIVER
 
 #ifdef ESP32_S3_DEVKITC_1
-//#define TFT_SDA_READ
+#define TFT_SDA_READ
 #define USE_HSPI_PORT
 #define TOUCH_CS -1
-#define TFT_MOSI 7
 #define TFT_MISO -1
-#define TFT_SCLK 15
-#define TFT_CS -1
-#define TFT_DC 6
-#define TFT_RST 4
 
-#define SCREEN_1_CS 5
-#define SCREEN_2_CS 16
-#define SCREEN_3_CS 17
-#define SCREEN_4_CS 8
-#define SCREEN_5_CS 3
+#define TFT_RST 38
+#define TFT_CS -1
+#define TFT_DC 37
+#define TFT_MOSI 36
+#define TFT_SCLK 35
+
+#define SCREEN_1_CS 1
+#define SCREEN_2_CS 2
+#define SCREEN_3_CS 42
+#define SCREEN_4_CS 41
+#define SCREEN_5_CS 40
 
 #define BUTTON_LEFT_PIN 12
 #define BUTTON_MIDDLE_PIN 13
@@ -108,7 +109,7 @@
 #define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
 
 #define BUTTON_MODE INPUT_PULLDOWN
-#define BUSY_PIN 38
+#define BUSY_PIN 4
 #else
 
 #define TFT_SDA_READ
