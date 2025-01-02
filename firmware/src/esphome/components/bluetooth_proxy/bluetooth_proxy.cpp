@@ -1,5 +1,4 @@
 #include "bluetooth_proxy.h"
-#ifdef USE_BLUETOOTH_PROXY
 
 #include "esphome/core/log.h"
 #include "esphome/core/macros.h"
@@ -521,4 +520,3 @@ BluetoothProxy *global_bluetooth_proxy = nullptr;  // NOLINT(cppcoreguidelines-a
 }  // namespace esphome
 
 #endif  // USE_ESP32
-#endif  // USE_BLUETOOTH_PROXY

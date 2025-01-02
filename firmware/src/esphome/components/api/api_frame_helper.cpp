@@ -872,9 +872,9 @@ APIError APIPlaintextFrameHelper::try_read_frame_(ParsedFrame *frame) {
   }
 
   // uncomment for even more debugging
-//#ifdef HELPER_LOG_PACKETS
+#ifdef HELPER_LOG_PACKETS
   ESP_LOGVV(TAG, "Received frame: %s", format_hex_pretty(rx_buf_).c_str());
-//#endif
+#endif
   frame->msg = std::move(rx_buf_);
   // consume msg
   rx_buf_ = {};
@@ -954,10 +954,10 @@ APIError APIPlaintextFrameHelper::write_raw_(const struct iovec *iov, int iovcnt
 
   size_t total_write_len = 0;
   for (int i = 0; i < iovcnt; i++) {
-//#ifdef HELPER_LOG_PACKETS
+#ifdef HELPER_LOG_PACKETS
     ESP_LOGVV(TAG, "Sending raw: %s",
               format_hex_pretty(reinterpret_cast<uint8_t *>(iov[i].iov_base), iov[i].iov_len).c_str());
-//#endif
+#endif
     total_write_len += iov[i].iov_len;
   }
 
