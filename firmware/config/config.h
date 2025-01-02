@@ -82,17 +82,18 @@
 #undef ILI9341_DRIVER
 #define GC9A01_DRIVER
 
-#ifdef ESP32_S3_DEVKITC_1
-//#define TFT_SDA_READ
-#define USE_HSPI_PORT
-#define TOUCH_CS -1
+#undef TFT_SDA_READ
 #define TFT_MISO -1
-
-#define TFT_RST 38
+#define TOUCH_CS -1
 #define TFT_CS -1
-#define TFT_DC 37
-#define TFT_MOSI 36
-#define TFT_SCLK 35
+
+#ifdef ESP32_S3_DEVKITC_1
+#define USE_HSPI_PORT
+
+#define TFT_RST 39
+#define TFT_DC 38
+#define TFT_MOSI 37
+#define TFT_SCLK 36
 
 #define SCREEN_1_CS 1
 #define SCREEN_2_CS 2
@@ -110,16 +111,36 @@
 
 #define BUTTON_MODE INPUT_PULLDOWN
 #define BUSY_PIN 4
+#elif defined(ESP32_S3_MATRIX)
+#define USE_HSPI_PORT
+
+#define TFT_RST 37
+#define TFT_DC 38
+#define TFT_MOSI 39
+#define TFT_SCLK 40
+
+#define SCREEN_1_CS 7
+#define SCREEN_2_CS 33
+#define SCREEN_3_CS 34
+#define SCREEN_4_CS 35
+#define SCREEN_5_CS 36
+
+#define BUTTON_LEFT_PIN 3
+#define BUTTON_MIDDLE_PIN 2
+#define BUTTON_RIGHT_PIN 1
+
+#define BUTTON_DEBOUNCE_TIME 35        // Debounce buttons for X ms
+#define BUTTON_MEDIUM_PRESS_TIME 500    // Medium press is registered after X ms
+#define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
+
+#define BUTTON_MODE INPUT_PULLDOWN
+#define BUSY_PIN 4
+
 #else
-
-#define TFT_SDA_READ
-
-#define TFT_MOSI 17
-#define TFT_MISO -1
-#define TFT_SCLK 23
-#define TFT_CS 15
-#define TFT_DC 19
 #define TFT_RST 18
+#define TFT_DC 19
+#define TFT_MOSI 17
+#define TFT_SCLK 23
 
 #define SCREEN_1_CS 13
 #define SCREEN_2_CS 33

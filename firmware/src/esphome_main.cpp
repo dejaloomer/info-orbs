@@ -33,7 +33,7 @@ void esphome_setup(){
   //   includes: []
   //   libraries: []
   //   name_add_mac_suffix: false
-  App.pre_setup("cooldude", "", "", "", __DATE__ ", " __TIME__, false);
+  App.pre_setup(MDNS_NAME, "", "", "", __DATE__ ", " __TIME__, false);
   // logger:
   //   level: DEBUG
   //   hardware_uart: UART0
@@ -61,7 +61,7 @@ void esphome_setup(){
   //     id: wifi_wifiap_id
   //     priority: 0.0
   //   use_address: cooldude.local
-  #if PWCMEM
+  #if 0
   wifi_wificomponent_id = new wifi::WiFiComponent();
   wifi_wificomponent_id->set_use_address("cooldude.local");
   {
@@ -87,15 +87,15 @@ void esphome_setup(){
   mdns_mdnscomponent_id->set_component_source("mdns");
   App.register_component(mdns_mdnscomponent_id);
   // api:
-  //   password: mysecret
   //   id: api_apiserver_id
   //   port: 6053
+  //   password: ''
   //   reboot_timeout: 15min
   api_apiserver_id = new api::APIServer();
   api_apiserver_id->set_component_source("api");
   App.register_component(api_apiserver_id);
   api_apiserver_id->set_port(6053);
-  api_apiserver_id->set_password("mysecret");
+  api_apiserver_id->set_password("");
   api_apiserver_id->set_reboot_timeout(900000);
   // esp32:
   //   board: esp32doit-devkit-v1

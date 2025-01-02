@@ -92,10 +92,11 @@ void setup() {
     addWidgets();
     config->setupWebPortal();
     MainHelper::resetCycleTimer();
-    Serial.println("Starting esphome");
-    ShowMemoryUsage::printSerial(true, true);
+    Serial.println("********** Starting esphome");
+    ShowMemoryUsage::printSerial(true);
     esphome_setup();
-    ShowMemoryUsage::printSerial(true, true);
+    Serial.println("********** Setup Complete");
+    ShowMemoryUsage::printSerial(true);
 }
 
 void loop() {
