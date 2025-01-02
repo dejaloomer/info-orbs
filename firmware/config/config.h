@@ -28,7 +28,7 @@
 #define CLOCK_COLOR 0xfc80              // Orange for clock
 #define CLOCK_SHADOW_COLOR 0x20a1       // Clock shadow color (Light brown)
 #define CLOCK_SHADOWING true            // Use clock shadow (set to false to disable)
-#define USE_CLOCK_NIXIE NIXIE_NOHOLES   // Set to NIXIE_HOLES or NIXIE_NOHOLES to define the Nixie style (set to 0 to disable)
+#define USE_CLOCK_NIXIE NIXIE_HOLES   // Set to NIXIE_HOLES or NIXIE_NOHOLES to define the Nixie style (set to 0 to disable)
 #define USE_CLOCK_CUSTOM 1              // Number of Custom Clocks [0-10] (set to 0 to disable, see images/clock/README.md)
 //#define CLOCK_NIXIE_COLOR 0x001f        // Override Nixie color
 #define DEFAULT_CLOCK ClockType::NORMAL // Set the default clock face: ClockType::NORMAL, ClockType::NIXIE or ClockType::CUSTOM0..9
@@ -83,7 +83,7 @@
 #define GC9A01_DRIVER
 
 #ifdef ESP32_S3_DEVKITC_1
-#define TFT_SDA_READ
+//#define TFT_SDA_READ
 #define USE_HSPI_PORT
 #define TOUCH_CS -1
 #define TFT_MISO -1
