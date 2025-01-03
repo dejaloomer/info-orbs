@@ -1,6 +1,6 @@
 #pragma once
 #include "esphome/core/macros.h"
-#define ESPHOME_BOARD "esp32doit-devkit-v1"
+#define ESPHOME_BOARD PLATFORM_BOARD_NAME
 #define ESPHOME_VARIANT "ESP32"
 #define USE_API
 #define USE_API_PLAINTEXT
