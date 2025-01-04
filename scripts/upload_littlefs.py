@@ -8,6 +8,6 @@
 Import("env")
 
 def before_upload(source, target, env):
-    env.Execute("pio run --target uploadfs")
+    env.Execute(f"pio run -e {env["PIOENV"]} --target uploadfs")
 
 env.AddPreAction("upload", before_upload)
