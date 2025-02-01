@@ -70,6 +70,19 @@ void setup() {
     Log.noticeln("PCB Version: %s", PCB_VERSION);
 
     ShowMemoryUsage::printSerial(true, true);
+    Serial.printf("*********** Total PSRam: %lu, free=%lu, used=%lu\n", ESP.getPsramSize(), ESP.getFreePsram(), ESP.getPsramSize() - ESP.getFreePsram());
+    heap_caps_print_heap_info(MALLOC_CAP_8BIT);   // General-purpose memory
+    heap_caps_print_heap_info(MALLOC_CAP_SPIRAM); // PSRAM memory
+    heap_caps_print_heap_info(MALLOC_CAP_DMA);   // DMA-capable memory
+    heap_caps_print_heap_info(MALLOC_CAP_INTERNAL); // Internal memory
+    uint32_t* data = (uint32_t*)malloc(1000000);
+    if(data == 0) {
+        Serial.println("Failed to allocate memory");
+    } else {
+        Serial.println("Allocated memory");
+        free((void *)data);
+    }
+
     wifiManager = new OrbsWiFiManager();
     config = new ConfigManager(*wifiManager);
     sm = new ScreenManager(tft);

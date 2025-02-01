@@ -120,27 +120,27 @@
 #elif defined(ESP32_S3_MATRIX)
 #define USE_HSPI_PORT
 
-#define TFT_RST 37
-#define TFT_DC 38
-#define TFT_MOSI 39
-#define TFT_SCLK 40
+#define TFT_RST 3
+#define TFT_DC 4
+#define TFT_MOSI 2
+#define TFT_SCLK 1
 
-#define SCREEN_1_CS 7
-#define SCREEN_2_CS 33
-#define SCREEN_3_CS 34
-#define SCREEN_4_CS 35
-#define SCREEN_5_CS 36
+#define SCREEN_1_CS 5
+#define SCREEN_2_CS 13
+#define SCREEN_3_CS 12
+#define SCREEN_4_CS 11
+#define SCREEN_5_CS 10
 
-#define BUTTON_LEFT_PIN 3
-#define BUTTON_MIDDLE_PIN 2
-#define BUTTON_RIGHT_PIN 1
+#define BUTTON_LEFT_PIN 7
+#define BUTTON_MIDDLE_PIN 8
+#define BUTTON_RIGHT_PIN 9
 
 #define BUTTON_DEBOUNCE_TIME 35        // Debounce buttons for X ms
 #define BUTTON_MEDIUM_PRESS_TIME 500    // Medium press is registered after X ms
 #define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
 
 #define BUTTON_MODE INPUT_PULLDOWN
-#define BUSY_PIN 4
+#define BUSY_PIN 16
 
 #else
 #define TFT_RST 18
