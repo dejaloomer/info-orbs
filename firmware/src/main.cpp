@@ -8,7 +8,6 @@
 #include "webdatawidget/WebDataWidget.h"
 #include "wifiwidget/WifiWidget.h"
 #include <ArduinoLog.h>
-#include "esphome.h"
 
 extern void esphome_setup();
 extern void esphome_loop();
@@ -100,10 +99,7 @@ void setup() {
 }
 
 void loop() {
-      esphome_loop();
-
-      App.loop();
-#if 1
+    esphome_loop();
     MainHelper::watchdogReset();
     if (wifiWidget->isConnected() == false) {
         wifiWidget->update();

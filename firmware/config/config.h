@@ -38,9 +38,11 @@
 #define WEATHER_LOCATION "Victoria, BC" // City/state for the weather, look it up on https://www.visualcrossing.com/weather-data
 #define WEATHER_SCREEN_MODE Dark        // Can be either Light or Dark
 #define WEATHER_UNITS_METRIC            // Comment this line out (or delete it) if you want imperial units for the weather
+#define HIGH_LOW_INTERVAL 0             // Switch between Highs and Lows on 3 day forecast in X seconds - set to 0 to disable
 
 // STOCK TICKER CONFIGURATION
 #define STOCK_TICKER_LIST "BTC/USD,USD/CAD,XEQT,SPY,APC&country=Germany" // Choose 5 securities to track. You can track forex, crypto (symbol/USD) or stocks from any exchange (if one ticker is part of multiple exchanges you can add on "&country=Canada" to narrow down to your ticker)
+#define STOCK_CHANGE_FORMAT 0           //Show percent change (0) or price change (1)
 
 // PARQET.COM PORTFOLIO CONFIGURATION
 //#define PARQET_PORTFOLIO_ID "" // set the id of your parqet.com portfolio. Make sure the portfolio is set to public!
@@ -68,6 +70,10 @@
 
 // ADVANCED COMPILE OPTIONS
 //#define INCLUDE_MDNS // Include mDNS responder, for local name resolution without DNS (disable to save flash/memory)
+
+// Log levels: LOG_LEVEL_SILENT, LOG_LEVEL_FATAL, LOG_LEVEL_ERROR, 
+// LOG_LEVEL_WARNING, LOG_LEVEL_NOTICE, LOG_LEVEL_VERBOSE
+#define LOG_LEVEL LOG_LEVEL_VERBOSE
 
 // ============= END OF USER CONFIGURATION =================================================================
 
@@ -180,5 +186,8 @@
 #define WEATHER_API_KEY "XW2RDGD6XK432AF25BNK2A3C7"
 
 #define MAX_RETRIES 3
+
+// if not defined, then no memory debugging is emitted
+// #define MEMORY_DEBUG_INTERVAL 5000
 
 #endif
