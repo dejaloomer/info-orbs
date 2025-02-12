@@ -71,7 +71,7 @@
 // ADVANCED COMPILE OPTIONS
 //#define INCLUDE_MDNS // Include mDNS responder, for local name resolution without DNS (disable to save flash/memory)
 
-// Log levels: LOG_LEVEL_SILENT, LOG_LEVEL_FATAL, LOG_LEVEL_ERROR, 
+// Log levels: LOG_LEVEL_SILENT, LOG_LEVEL_FATAL, LOG_LEVEL_ERROR,
 // LOG_LEVEL_WARNING, LOG_LEVEL_NOTICE, LOG_LEVEL_VERBOSE
 #define LOG_LEVEL LOG_LEVEL_VERBOSE
 
@@ -92,78 +92,81 @@
 #define TFT_MISO -1
 #define TOUCH_CS -1
 #define TFT_CS -1
+#define TFT_BACKLIGHT_PIN -1
 
 #ifdef ESP32_S3_DEVKITC_1
-#define USE_HSPI_PORT
+    #define USE_HSPI_PORT
 
-#define TFT_RST 39
-#define TFT_DC 38
-#define TFT_MOSI 37
-#define TFT_SCLK 36
+    #define TFT_RST 39
+    #define TFT_DC 38
+    #define TFT_MOSI 37
+    #define TFT_SCLK 36
 
-#define SCREEN_1_CS 1
-#define SCREEN_2_CS 2
-#define SCREEN_3_CS 42
-#define SCREEN_4_CS 41
-#define SCREEN_5_CS 40
+    #define SCREEN_1_CS 1
+    #define SCREEN_2_CS 2
+    #define SCREEN_3_CS 42
+    #define SCREEN_4_CS 41
+    #define SCREEN_5_CS 40
 
-#define BUTTON_LEFT_PIN 12
-#define BUTTON_MIDDLE_PIN 13
-#define BUTTON_RIGHT_PIN 14
+    #define BUTTON_LEFT_PIN 12
+    #define BUTTON_MIDDLE_PIN 13
+    #define BUTTON_RIGHT_PIN 14
 
 #define BUTTON_DEBOUNCE_TIME 35        // Debounce buttons for X ms
 #define BUTTON_MEDIUM_PRESS_TIME 500    // Medium press is registered after X ms
 #define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
 
-#define BUTTON_MODE INPUT_PULLDOWN
-#define BUSY_PIN 4
+    #define BUTTON_MODE INPUT_PULLDOWN
+    #define BUSY_PIN 4
 #elif defined(ESP32_S3_MATRIX)
-#define USE_HSPI_PORT
+    #define USE_HSPI_PORT
 
-#define TFT_RST 3
-#define TFT_DC 4
-#define TFT_MOSI 2
-#define TFT_SCLK 1
+    #undef TFT_BACKLIGHT_PIN
+    #define TFT_BACKLIGHT_PIN 6
+    #define TFT_RST 3
+    #define TFT_DC 4
+    #define TFT_MOSI 2
+    #define TFT_SCLK 1
 
-#define SCREEN_1_CS 5
-#define SCREEN_2_CS 13
-#define SCREEN_3_CS 12
-#define SCREEN_4_CS 11
-#define SCREEN_5_CS 10
+    #define SCREEN_1_CS 10
+    #define SCREEN_2_CS 11
+    #define SCREEN_3_CS 12
+    #define SCREEN_4_CS 13
+    #define SCREEN_5_CS 5
 
-#define BUTTON_LEFT_PIN 7
-#define BUTTON_MIDDLE_PIN 8
-#define BUTTON_RIGHT_PIN 9
+    #define BUTTON_LEFT_PIN 7
+    #define BUTTON_MIDDLE_PIN 8
+    #define BUTTON_RIGHT_PIN 9
 
 #define BUTTON_DEBOUNCE_TIME 35        // Debounce buttons for X ms
 #define BUTTON_MEDIUM_PRESS_TIME 500    // Medium press is registered after X ms
 #define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
 
-#define BUTTON_MODE INPUT_PULLDOWN
-#define BUSY_PIN 16
+    #define BUTTON_MODE INPUT_PULLDOWN
+    #define BUSY_PIN 16
 
 #else
-#define TFT_RST 18
-#define TFT_DC 19
-#define TFT_MOSI 17
-#define TFT_SCLK 23
+    #define TFT_RST 18
+    #define TFT_DC 19
+    #define TFT_MOSI 17
+    #define TFT_SCLK 23
 
-#define SCREEN_1_CS 13
-#define SCREEN_2_CS 33
-#define SCREEN_3_CS 32
-#define SCREEN_4_CS 25
-#define SCREEN_5_CS 21
+    #define SCREEN_1_CS 13
+    #define SCREEN_2_CS 33
+    #define SCREEN_3_CS 32
+    #define SCREEN_4_CS 25
+    #define SCREEN_5_CS 21
 
-#define BUTTON_LEFT_PIN 26
-#define BUTTON_MIDDLE_PIN 27
-#define BUTTON_RIGHT_PIN 14
+    #define BUTTON_LEFT_PIN 26
+    #define BUTTON_MIDDLE_PIN 27
+    #define BUTTON_RIGHT_PIN 14
 
 #define BUTTON_DEBOUNCE_TIME 35        // Debounce buttons for X ms
 #define BUTTON_MEDIUM_PRESS_TIME 500    // Medium press is registered after X ms
 #define BUTTON_LONG_PRESS_TIME 2000     // Long press is registered after X ms
 
-#define BUTTON_MODE INPUT_PULLDOWN
-#define BUSY_PIN 2
+    #define BUTTON_MODE INPUT_PULLDOWN
+    #define BUSY_PIN 2
 #endif
 
 #define NTP_SERVER "pool.ntp.org"

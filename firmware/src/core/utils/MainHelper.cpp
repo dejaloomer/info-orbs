@@ -466,9 +466,11 @@ void MainHelper::updateBrightnessByTime(uint8_t hour24) {
     }
 
     if (s_screenManager->setBrightness(newBrightness)) {
-        // brightness was changed -> update widget
+// brightness was changed -> update widget
+#if TFT_BACKLIGHT_PIN < 0 // Only force redraw if we don't have a backlight pin
         s_screenManager->clearAllScreens();
         s_widgetSet->drawCurrent(true);
+#endif
     }
 }
 

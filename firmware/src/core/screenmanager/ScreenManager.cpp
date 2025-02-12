@@ -14,6 +14,15 @@ ScreenManager::ScreenManager(TFT_eSPI &tft) : m_tft(tft) {
         digitalWrite(m_screen_cs[i], LOW);
     }
 
+#if TFT_BACKLIGHT_PIN >= 0
+    pinMode(TFT_BACKLIGHT_PIN, OUTPUT);
+    digitalWrite(TFT_BACKLIGHT_PIN, HIGH);
+    // add pwm to control brightness
+    ledcSetup(0, 5000, 8);
+    ledcAttachPin(TFT_BACKLIGHT_PIN, 0);
+    ledcWrite(0, 255);
+#endif
+
     m_tft.init();
     m_tft.setRotation(ConfigManager::getInstance()->getConfigInt("orbRotation", ORB_ROTATION));
     m_tft.fillScreen(TFT_WHITE);
@@ -134,6 +143,9 @@ bool ScreenManager::setBrightness(uint8_t brightness) {
     if (m_brightness != brightness) {
         Serial.printf("Brightness set to %d\n", brightness);
         m_brightness = brightness;
+#if TFT_BACKLIGHT_PIN >= 0
+        ledcWrite(0, brightness);
+#endif
         return true;
     } else {
         return false;
@@ -281,7 +293,11 @@ unsigned int ScreenManager::getScaledFontSize(unsigned int fontSize) {
 
 // get the dimmed color (using current brightness)
 uint16_t ScreenManager::dim(uint16_t color) {
+#if TFT_BACKLIGHT_PIN >= 0 // if real backlight is used don't alter the color
+    return color;
+#else
     return Utils::rgb565dim(color, m_brightness);
+#endif
 }
 
 int16_t ScreenManager::getLegacyFontHeight() {
@@ -335,10 +351,12 @@ bool ScreenManager::tftOutput(int16_t x, int16_t y, uint16_t w, uint16_t h, uint
         // We have an image color set, let's use it
         Utils::colorizeImageData(bitmap, w * h, imageColor, 1.25, true);
     }
+#if TFT_BACKLIGHT_PIN < 0 // only dim if not using hw backlight
     if (brightness != 255) {
         // Dim bitmap
         Utils::rgb565dimBitmap(bitmap, w * h, brightness, true);
     }
+#endif
     tft.pushImage(x, y, w, h, bitmap);
     return true;
 }
