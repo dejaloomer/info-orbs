@@ -4,13 +4,13 @@
 // ============= CONFIGURE THESE FIELDS BEFORE FLASHING ====================================================
 
 // MAIN CONFIGURATION
-#define TIMEZONE_API_LOCATION "America/Vancouver" // Use timezone from this list: https://timezonedb.com/time-zones
+#define TIMEZONE_API_LOCATION "America/Los_Angeles" // Use timezone from this list: https://timezonedb.com/time-zones
 #define ORB_ROTATION 0                            // 0 = Normal, 1 = 90 degrees CW, 2 = 180 degrees, 3 = 270 degrees CW
 #define WIDGET_CYCLE_DELAY 0                      // Automatically cycle widgets every X seconds, set to 0 to disable
 #define LOCALE EN                                 // Language selection for Month and Weekday - possible values are EN, DE, FR
 
 // WIDGETS
-//#define INCLUDE_WEATHER       // include WeatherWidget
+#define INCLUDE_WEATHER       // include WeatherWidget
 //#define INCLUDE_STOCK         // include StockWidget
 //#define INCLUDE_PARQET        // include ParqetWidget
 //#define INCLUDE_WEBDATA       // include WebDataWidget
@@ -35,13 +35,13 @@
 //#define CLOCK_FONT DSEG7              // Define clock font (defaults to DSEG7, you can also try DSEG14 or FINAL_FRONTIER)
 
 // WEATHER CONFIGURATION
-#define WEATHER_LOCATION "Victoria, BC" // City/state for the weather, look it up on https://www.visualcrossing.com/weather-data
+#define WEATHER_LOCATION "San Jose, CA" // City/state for the weather, look it up on https://www.visualcrossing.com/weather-data
 #define WEATHER_SCREEN_MODE Dark        // Can be either Light or Dark
 #define WEATHER_UNITS_METRIC            // Comment this line out (or delete it) if you want imperial units for the weather
 #define HIGH_LOW_INTERVAL 0             // Switch between Highs and Lows on 3 day forecast in X seconds - set to 0 to disable
 
 // STOCK TICKER CONFIGURATION
-#define STOCK_TICKER_LIST "BTC/USD,USD/CAD,XEQT,SPY,APC&country=Germany" // Choose 5 securities to track. You can track forex, crypto (symbol/USD) or stocks from any exchange (if one ticker is part of multiple exchanges you can add on "&country=Canada" to narrow down to your ticker)
+#define STOCK_TICKER_LIST "DOGE/USD,AAPL,AMZN,GOOG,SPY" // Choose 5 securities to track. You can track forex, crypto (symbol/USD) or stocks from any exchange (if one ticker is part of multiple exchanges you can add on "&country=Canada" to narrow down to your ticker)
 #define STOCK_CHANGE_FORMAT 0           //Show percent change (0) or price change (1)
 
 // PARQET.COM PORTFOLIO CONFIGURATION

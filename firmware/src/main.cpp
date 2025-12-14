@@ -23,7 +23,7 @@ WidgetSet *widgetSet{nullptr};
 
 void addWidgets() {
     // Always add clock
-    widgetSet->add(new ClockWidget(*sm, *config));
+ //   widgetSet->add(new ClockWidget(*sm, *config));
 #ifdef INCLUDE_WEATHER
     widgetSet->add(new WeatherWidget(*sm, *config));
 #endif
